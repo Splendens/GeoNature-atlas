@@ -5,14 +5,21 @@ if (configuration.MAP.ENABLE_SLIDER) {
 var legend = L.control({ position: "bottomright" });
 
 // Legende
+ if (configuration.MAP.ENABLE_LIMIT_TERRI_2) {  
+        htmlLegend =
+          "<i style='border: solid " + configuration.MAP.BORDERS_WEIGHT + "px " 
+          + configuration.MAP.BORDERS_COLOR + ";'> &nbsp; &nbsp; &nbsp;</i> Limite du " 
+          + configuration.STRUCTURE
+          + "<br> <br>" + "<i style='border: solid " + configuration.MAP.BORDERS_WEIGHT_LIMIT2 + "px "
+          + configuration.MAP.BORDERS_COLOR_LIMIT2 + ";'> &nbsp; &nbsp; &nbsp;</i> "
+          + configuration.MAP.LEGEND_LIMIT_TERRI_2;
+  }else{
 
-htmlLegend =
-  "<i style='border: solid " +
-  configuration.MAP.BORDERS_WEIGHT +
-  "px " +
-  configuration.MAP.BORDERS_COLOR +
-  ";'> &nbsp; &nbsp; &nbsp;</i> Limite du " +
-  configuration.STRUCTURE;
+        htmlLegend =
+          "<i style='border: solid " + configuration.MAP.BORDERS_WEIGHT + "px " 
+          + configuration.MAP.BORDERS_COLOR + ";'> &nbsp; &nbsp; &nbsp;</i> Limite du " 
+          + configuration.STRUCTURE;
+      }
 generateLegende(htmlLegend);
 
 // Current observation Layer: leaflet layer type

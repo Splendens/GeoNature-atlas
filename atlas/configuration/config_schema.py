@@ -46,6 +46,10 @@ class MapConfig(Schema):
     BORDERS_COLOR = fields.String(missing="#000000")
     BORDERS_WEIGHT = fields.Integer(missing=3)
     ENABLE_SLIDER = fields.Boolean(missing=True)
+    BORDERS_COLOR_LIMIT2 = fields.String(missing="#000000")
+    BORDERS_WEIGHT_LIMIT2 = fields.Integer(missing=1)
+    ENABLE_LIMIT_TERRI_2 = fields.Boolean(missing=True)
+    LEGEND_LIMIT_TERRI_2 = fields.String(missing="Limites départementales")
 
 
 class AtlasConfig(Schema):
@@ -57,6 +61,7 @@ class AtlasConfig(Schema):
     GLOSSAIRE = fields.Boolean(missing=False)
     IGNAPIKEY = fields.String(missing="")
     AFFICHAGE_INTRODUCTION = fields.Boolean(missing=True)
+    AFFICHAGE_LOGOS_HOME = fields.Boolean(missing=True)
     AFFICHAGE_FOOTER = fields.Boolean(missing=False)
     AFFICHAGE_STAT_GLOBALES = fields.Boolean(missing=True)
     AFFICHAGE_DERNIERES_OBS = fields.Boolean(missing=True)

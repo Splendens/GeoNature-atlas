@@ -74,12 +74,43 @@ $(function(){
 
 });
 
+
 // Generate legends and check configuration to choose which to display (Maille ou Point)
 
-htmlLegendMaille = "<i style='border: solid 1px red;'> &nbsp; &nbsp; &nbsp;</i> Maille comportant au moins une observation <br> <br>" +
-						"<i style='border: solid "+configuration.MAP.BORDERS_WEIGHT+"px "+configuration.MAP.BORDERS_COLOR+";'> &nbsp; &nbsp; &nbsp;</i> Limite du "+configuration.STRUCTURE;
+if (configuration.MAP.ENABLE_LIMIT_TERRI_2) { 
+      htmlLegendMaille =
+        "<i style='border: solid 1px red;'> &nbsp; &nbsp; &nbsp;</i> Maille comportant au moins une observation <br> <br>" 
+        + "<i style='border: solid " + configuration.MAP.BORDERS_WEIGHT + "px "
+        + configuration.MAP.BORDERS_COLOR + ";'> &nbsp; &nbsp; &nbsp;</i> Limite du " + configuration.STRUCTURE
+        + "<br> <br>"+"<i style='border: solid " +
+        + configuration.MAP.BORDERS_WEIGHT_LIMIT2 + "px "
+        + configuration.MAP.BORDERS_COLOR_LIMIT2 + ";'> &nbsp; &nbsp; &nbsp;</i> "
+        + configuration.MAP.LEGEND_LIMIT_TERRI_2;
+  }else{
 
-htmlLegendPoint = "<i style='border: solid "+configuration.MAP.BORDERS_WEIGHT+"px "+configuration.MAP.BORDERS_COLOR+";'> &nbsp; &nbsp; &nbsp;</i> Limite du "+configuration.STRUCTURE
+      htmlLegendMaille = 
+        "<i style='border: solid 1px red;'> &nbsp; &nbsp; &nbsp;</i> Maille comportant au moins une observation <br> <br>" 
+        + "<i style='border: solid " + configuration.MAP.BORDERS_WEIGHT + "px "
+        + configuration.MAP.BORDERS_COLOR + ";'> &nbsp; &nbsp; &nbsp;</i> Limite du "
+        + configuration.STRUCTURE;
+  }
+
+if (configuration.MAP.ENABLE_LIMIT_TERRI_2) { 
+      htmlLegendPoint = 
+        "<i style='border: solid " + configuration.MAP.BORDERS_WEIGHT + "px "
+        + configuration.MAP.BORDERS_COLOR + ";'> &nbsp; &nbsp; &nbsp;</i> Limite du "
+        + configuration.STRUCTURE
+        + "<br> <br>" + "<i style='border: solid " +
+        + configuration.MAP.BORDERS_WEIGHT_LIMIT2 + "px "
+        + configuration.MAP.BORDERS_COLOR_LIMIT2 + ";'> &nbsp; &nbsp; &nbsp;</i> "
+        + configuration.MAP.LEGEND_LIMIT_TERRI_2;
+  }else {
+      htmlLegendPoint = 
+        "<i style='border: solid " + configuration.MAP.BORDERS_WEIGHT + "px "
+        + configuration.MAP.BORDERS_COLOR + ";'> &nbsp; &nbsp; &nbsp;</i> Limite du "
+        + configuration.STRUCTURE;
+  }
+        
 
 htmlLegend = configuration.AFFICHAGE_MAILLE ? htmlLegendMaille : htmlLegendPoint;
 

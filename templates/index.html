@@ -255,6 +255,9 @@
   			var observations = {{observations|tojson}}
   			, configuration = {{configuration|tojson}},
   			url_limit_territory = "{{url_for('static', filename='custom/territoire.json') }}";
+  			if (configuration.MAP.ENABLE_LIMIT_TERRI_2) {
+            	var url_limit_territory_2 = "{{url_for('static', filename='custom/territoire_limit2.json') }}";
+            }
 	  	</script>
 
 	  	<script src="{{url_for('static', filename='custom/maps-custom.js') }}"></script>

@@ -37,6 +37,27 @@ function generateMap() {
     });
   });
 
+// ajout d'une limite supplémentaire en plus de la limite principale si ENABLE_LIMIT_TERRITOIRE_2 = TRUE
+  // Style of territory on map
+if (configuration.MAP.ENABLE_LIMIT_TERRI_2) {
+  
+  territoryStyleLimit2 = {
+    fill: false,
+    color: configuration.MAP.BORDERS_COLOR_LIMIT2,
+    weight: configuration.MAP.BORDERS_WEIGHT_LIMIT2
+  };
+  
+  // Add limits of the territory to the map
+  $(document).ready(function() {
+    $.getJSON(url_limit_territory_2, function(json) {
+      L.geoJson(json, {
+        style: territoryStyleLimit2
+      }).addTo(map);
+    });
+  }); 
+
+}
+
   // 'Google-like' baseLayer controler
 
   var LayerControl = L.Control.extend({
